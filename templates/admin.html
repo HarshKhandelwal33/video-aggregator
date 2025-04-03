@@ -1,0 +1,13 @@
+<h2>Admin Panel</h2>
+<form method="post">
+    <input name="title" placeholder="Title" required>
+    <input name="url" placeholder="Video URL" required>
+    <input name="thumbnail" placeholder="Thumbnail URL">
+    <button type="submit">Add Video</button>
+</form>
+
+<ul>
+    {% for video in videos %}
+        <li>{{ video['title'] }} — {{ video['click_count'] }} views</li>
+    {% endfor %}
+</ul>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Video Aggregator</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <h1>🔥 Trending Videos</h1>
+    <form method="get" action="/">
+        <input type="text" name="q" placeholder="Search videos..." />
+        <button type="submit">Search</button>
+    </form>
+    <div class="grid">
+        {% for video in videos %}
+        <div class="card">
+            <a href="{{ url_for('click', video_id=video['id']) }}">
+                <img src="{{ video['thumbnail'] }}" alt="{{ video['title'] }}" />
+                <p>{{ video['title'] }}</p>
+                <small>{{ video['click_count'] }} views</small>
+            </a>
+        </div>
+        {% endfor %}
+    </div>
+</body>
+</html>
